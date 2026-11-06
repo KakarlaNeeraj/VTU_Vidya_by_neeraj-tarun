@@ -22,7 +22,7 @@ FROM node:20-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
-ENV PORT=5001
+ENV PORT=3000
 
 COPY package*.json ./
 COPY server/package*.json ./server/
@@ -34,6 +34,6 @@ RUN npm install --omit=dev --ignore-scripts && cd server && npm install --omit=d
 COPY server/ ./server/
 COPY --from=builder /app/client/dist ./client/dist
 
-EXPOSE 5001
+EXPOSE 3000
 
 CMD ["node", "server/server.js"]

@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());
@@ -14,11 +14,18 @@ app.use(morgan('dev'));
 
 // Path to data files
 const SCHEMES_FILE = path.join(__dirname, 'data', 'vtu_schemes_data.json');
-const REPORTS_FILE = path.join(__dirname, 'data', 'reports.json');
+let REPORTS_FILE = path.join(__dirname, 'data', 'reports.json');
 
-// Ensure reports file exists
-if (!fs.existsSync(REPORTS_FILE)) {
-  fs.writeFileSync(REPORTS_FILE, JSON.stringify([], null, 2));
+// Ensure reports file exists with read-only filesystem fallback (e.g. Lambda/Vercel)
+try {
+  if (!fs.existsSync(REPORTS_FILE)) {
+    fs.writeFileSync(REPORTS_FILE, JSON.stringify([], null, 2));
+  }
+} catch (e) {
+  REPORTS_FILE = path.join('/tmp', 'reports.json');
+  if (!fs.existsSync(REPORTS_FILE)) {
+    try { fs.writeFileSync(REPORTS_FILE, JSON.stringify([], null, 2)); } catch (_) {}
+  }
 }
 
 // Load curriculum data
@@ -347,17 +354,16 @@ if (fs.existsSync(CLIENT_DIST)) {
   });
 }
 
-// Start Server (only if not running under serverless environment)
-if (!process.env.VERCEL) {
-  app.listen(PORT, () => {
-    console.log(`=======================================================`);
-    console.log(`🎓 VTU-Vidya by neeraj&tarun is running!`);
-    console.log(`🌐 Local Web App: http://localhost:${PORT}`);
-    console.log(`📡 API Base:      http://localhost:${PORT}/api`);
-    console.log(`=======================================================`);
-  });
-}
+// Start Server
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`=======================================================`);
+  console.log(`🎓 VTU-Vidya by neeraj&tarun is running!`);
+  console.log(`🌐 Local Web App: http://0.0.0.0:${PORT}`);
+  console.log(`📡 API Base:      http://0.0.0.0:${PORT}/api`);
+  console.log(`=======================================================`);
+});
 
 module.exports = app;
+
 
 
