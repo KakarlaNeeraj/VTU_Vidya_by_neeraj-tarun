@@ -354,14 +354,16 @@ if (fs.existsSync(CLIENT_DIST)) {
   });
 }
 
-// Start Server
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`=======================================================`);
-  console.log(`🎓 VTU-Vidya by neeraj&tarun is running!`);
-  console.log(`🌐 Local Web App: http://0.0.0.0:${PORT}`);
-  console.log(`📡 API Base:      http://0.0.0.0:${PORT}/api`);
-  console.log(`=======================================================`);
-});
+// Start Server (only when running as standalone Node process, not in serverless)
+if (!process.env.VERCEL) {
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`=======================================================`);
+    console.log(`🎓 VTU-Vidya by neeraj&tarun is running!`);
+    console.log(`🌐 Local Web App: http://0.0.0.0:${PORT}`);
+    console.log(`📡 API Base:      http://0.0.0.0:${PORT}/api`);
+    console.log(`=======================================================`);
+  });
+}
 
 module.exports = app;
 
