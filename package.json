@@ -1,0 +1,32 @@
+{
+  "name": "vtu-vidya",
+  "version": "1.0.0",
+  "description": "VTU-Vidya by neeraj&tarun - Local & Cloud full-stack VTU SGPA, CGPA & Percentage Calculator",
+  "main": "server/server.js",
+  "scripts": {
+    "postinstall": "cd client && npm install && npm run build",
+    "build": "cd client && npm install && npm run build",
+    "start": "node server/server.js",
+    "server": "node server/server.js",
+    "dev": "node server/server.js",
+    "dev:client": "cd client && npm run dev"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "morgan": "^1.10.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "vtu",
+    "sgpa",
+    "cgpa",
+    "calculator",
+    "vtu-vidya",
+    "cbcs"
+  ],
+  "author": "neeraj&tarun",
+  "license": "MIT"
+}

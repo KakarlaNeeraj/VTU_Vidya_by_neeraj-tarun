@@ -1,0 +1,96 @@
+[
+  {
+    "id": "1793989354403",
+    "createdAt": "2026-11-06T18:22:34.403Z",
+    "type": "SGPA",
+    "title": "3rd Semester SGPA (2025 Scheme)",
+    "scheme": "2025",
+    "semester": "3rd Semester",
+    "branch": "Computer Science & Engineering",
+    "score": 8.86,
+    "totalCredits": 21,
+    "totalNumerator": 186,
+    "breakdown": [
+      {
+        "name": "Probability, Distributions and Statistics",
+        "code": "1BMATCS301",
+        "credits": 4,
+        "marks": 80,
+        "gradePoint": 9,
+        "letterGrade": "A+",
+        "status": "Excellent",
+        "gradeCredits": 36
+      },
+      {
+        "name": "Object Oriented Programming with Java",
+        "code": "1BCS302",
+        "credits": 4,
+        "marks": 80,
+        "gradePoint": 9,
+        "letterGrade": "A+",
+        "status": "Excellent",
+        "gradeCredits": 36
+      },
+      {
+        "name": "Digital Design and Computer Organization",
+        "code": "1BCS303",
+        "credits": 4,
+        "marks": 80,
+        "gradePoint": 9,
+        "letterGrade": "A+",
+        "status": "Excellent",
+        "gradeCredits": 36
+      },
+      {
+        "name": "Operating Systems",
+        "code": "1BCS304",
+        "credits": 3,
+        "marks": 70,
+        "gradePoint": 8,
+        "letterGrade": "A",
+        "status": "Very Good",
+        "gradeCredits": 24
+      },
+      {
+        "name": "Data Structures and Applications",
+        "code": "1BCS305",
+        "credits": 3,
+        "marks": 70,
+        "gradePoint": 8,
+        "letterGrade": "A",
+        "status": "Very Good",
+        "gradeCredits": 24
+      },
+      {
+        "name": "Data Structures Laboratory",
+        "code": "1BCSL306",
+        "credits": 1,
+        "marks": 99,
+        "gradePoint": 10,
+        "letterGrade": "O",
+        "status": "Outstanding",
+        "gradeCredits": 10
+      },
+      {
+        "name": "Ability Enhancement Course Lab (elective)",
+        "code": "1BCSL307x",
+        "credits": 1,
+        "marks": 99,
+        "gradePoint": 10,
+        "letterGrade": "O",
+        "status": "Outstanding",
+        "gradeCredits": 10
+      },
+      {
+        "name": "Community Project (Project-Based Learning)",
+        "code": "1BCP308",
+        "credits": 1,
+        "marks": 99,
+        "gradePoint": 10,
+        "letterGrade": "O",
+        "status": "Outstanding",
+        "gradeCredits": 10
+      }
+    ]
+  }
+]
