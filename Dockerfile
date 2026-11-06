@@ -3,14 +3,14 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# Copy root and client manifests
+# Copy root and client package definitions
 COPY package*.json ./
 COPY client/package*.json ./client/
 
-# Install client dependencies and build
+# Install client dependencies
 RUN cd client && npm install
 
-# Copy source files
+# Copy entire source tree
 COPY . .
 
 # Build client production bundle
@@ -27,10 +27,10 @@ ENV PORT=5001
 COPY package*.json ./
 COPY server/package*.json ./server/
 
-# Install production dependencies
-RUN npm install --omit=dev && cd server && npm install --omit=dev
+# Install production dependencies cleanly without executing postinstall hooks
+RUN npm install --omit=dev --ignore-scripts && cd server && npm install --omit=dev --ignore-scripts
 
-# Copy server and built frontend
+# Copy server code and pre-compiled client assets
 COPY server/ ./server/
 COPY --from=builder /app/client/dist ./client/dist
 

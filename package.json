@@ -4,7 +4,6 @@
   "description": "VTU-Vidya by neeraj&tarun - Local & Cloud full-stack VTU SGPA, CGPA & Percentage Calculator",
   "main": "server/server.js",
   "scripts": {
-    "postinstall": "cd client && npm install && npm run build",
     "build": "cd client && npm install && npm run build",
     "start": "node server/server.js",
     "server": "node server/server.js",
